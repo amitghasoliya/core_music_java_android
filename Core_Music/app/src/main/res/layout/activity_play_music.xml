@@ -70,9 +70,11 @@
 
     <SeekBar
         android:id="@+id/seekBar"
-        android:layout_width="379dp"
+        android:layout_width="0dp"
         android:layout_height="26dp"
+        android:layout_marginStart="2dp"
         android:layout_marginTop="60dp"
+        android:layout_marginEnd="2dp"
         android:paddingLeft="4dp"
         android:paddingRight="4dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -81,9 +83,11 @@
 
     <ImageView
         android:id="@+id/SongImage"
-        android:layout_width="396dp"
+        android:layout_width="0dp"
         android:layout_height="412dp"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="30dp"
+        android:layout_marginEnd="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.444"
         app:layout_constraintStart_toStartOf="parent"

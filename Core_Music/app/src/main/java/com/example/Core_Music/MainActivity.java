@@ -26,10 +26,6 @@ public class MainActivity extends AppCompatActivity {
     ListView listView ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        //hide the title bar
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
-        getSupportActionBar().hide();
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         listView = findViewById(R.id.listView);
@@ -58,7 +54,6 @@ public class MainActivity extends AppCompatActivity {
 //                        ArrayAdapter ad=new ArrayAdapter(this, android.R.layout.simple_expandable_list_item_1,data);
 //                        listVar.setAdapter(ad);
                         listView.setAdapter(adapter);
-                        listView.setBackgroundResource(R.drawable.rounded);
 
                         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 

@@ -1,13 +1,10 @@
 package com.example.Core_Music;
 
-import android.content.Context;
 import android.content.Intent;
-import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
-import android.view.Window;
 import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -29,9 +26,6 @@ public class Play_Music extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        //hides the title bar
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
-        getSupportActionBar().hide();
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_play_music);
@@ -47,7 +41,6 @@ public class Play_Music extends AppCompatActivity {
         textContent = intent.getStringExtra("currentSong");
         songName.setText(textContent);
         songName.setSelected(true);
-
 
         position = intent.getIntExtra("position",0);
         Uri uri = Uri.parse(songs.get(position).toString());
@@ -84,24 +77,23 @@ public class Play_Music extends AppCompatActivity {
         });
 
         updateSeek = new Thread(){
+            @Override
+            public void run() {
+                int currentPosition = 0 ;
+                try {
+                    while (currentPosition<mediaPlayer.getDuration()){
+                        currentPosition = mediaPlayer.getCurrentPosition();
+                        seekBar.setProgress(currentPosition);
+                        sleep(800);
+                    }
 
-        @Override
-        public void run() {
-            int currentPosition = 0 ;
-            try {
-                while (currentPosition<mediaPlayer.getDuration()){
-                    currentPosition = mediaPlayer.getCurrentPosition();
-                    seekBar.setProgress(currentPosition);
-                    sleep(800);
+                }catch (Exception e ){
+                    e.printStackTrace();
                 }
-
-            }catch (Exception e ){
-            e.printStackTrace();
             }
-        }
 
-    };
-    updateSeek.start();
+        };
+        updateSeek.start();
 
         play.setOnClickListener(new View.OnClickListener() {
 
@@ -138,7 +130,6 @@ public class Play_Music extends AppCompatActivity {
                 textContent = songs.get(position).getName().toString();
                 play.setImageResource(R.drawable.pause);
                 songName.setText(textContent);
-
             }
         });
 

@@ -1,16 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <shape xmlns:android="http://schemas.android.com/apk/res/android" >
-    <solid android:color="@color/white" />
-    <stroke
-        android:width="2dip"
-        android:color="#D5D5D5" />
-    <corners android:radius="25dp" android:bottomLeftRadius="0dp" android:bottomRightRadius="0dp" />
-
-    <!-- Make sure bottom and top padding match corner radius -->
-    <padding
-        android:bottom="10dip"
-        android:left="2dip"
-        android:right="2dip"
-        android:top="10dip" />
+    <solid android:color="#fcfcfc" />
+    <corners android:radius="23dp" android:bottomLeftRadius="0dp" android:bottomRightRadius="0dp" />
 </shape>
